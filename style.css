@@ -1,0 +1,43 @@
+* {
+    background-color: blanchedalmond;
+    border: solid 1px limegreen;
+    margin: 0;
+}
+
+body {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    margin: 10px;
+}
+
+.canvas {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pixel {
+    background-color: antiquewhite;
+    box-sizing: border-box;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.eraser {
+    background-color: white;
+}
