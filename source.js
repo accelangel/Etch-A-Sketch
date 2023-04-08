@@ -84,9 +84,11 @@ eraserButton.addEventListener('click', () => {
 });
 
 function selectedButton(button) {
-    button.classList.add('selected');
-    previousButton.classList.remove('selected');
-    previousButton = button;
+    if (button != previousButton) {
+        button.classList.add('selected');
+        previousButton.classList.remove('selected');
+        previousButton = button;
+    }
 }
 
 clearButton.addEventListener('click', () => {
