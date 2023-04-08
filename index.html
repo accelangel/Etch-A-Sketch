@@ -6,18 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Etch-A-Sketch</title>
+    <title>Sketchy Business</title>
 </head>
 
 <body>
+
     <h1>Sketchy Business</h1>
-    <div class="canvas"></div>
-    <div>
-        <button class="red">red</button>
-        <button class="green">green</button>
-        <button class="blue">blue</button>
-        <button class="eraser">eraser</button>
-        <input type="color">
+    <div class="artContainer">
+        <div class="uiContainer">
+            <input type="color" id="colorInput">
+            <button class="colors">colors</button>
+            <button class="rainbow">rainbow</button>
+            <button class="eraser">eraser</button>
+            <button class="clear">clear</button>
+        </div>
+        <div class="canvas" ondragstart="return false;"></div>
     </div>
 
 </body>

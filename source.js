@@ -1,15 +1,19 @@
-const body = document.body;
+//--------------------------------------------------Setup Variables
 const canvas = document.querySelector('.canvas');
 const pixel = document.querySelector('.pixel');
 
-const redButton = document.querySelector('.red');
-const greenButton = document.querySelector('.green');
-const blueButton = document.querySelector('.blue');
+const colorsButton = document.querySelector('.colors');
+const rainbowButton = document.querySelector('.rainbow');
 const eraserButton = document.querySelector('.eraser')
-let paintColor = 'white';
+const clearButton = document.querySelector('.clear')
+const colorInput = document.getElementById('colorInput');
 
-const CANVAS_SIZE = 256;
-const PIXEL_SIZE = 8;
+let canvasPixels = []; //Array to store 'id' of every pixel in the canvas
+let brushColor = 'black';//Initial color of the default brush
+let brush = 'colors';
+//--------------------------------------------------Draw Canvas
+const CANVAS_SIZE = 448;
+const PIXEL_SIZE = 16;
 const PIXEL_COUNT = CANVAS_SIZE / PIXEL_SIZE;
 
 canvas.style.width = `${CANVAS_SIZE}px`;
@@ -18,6 +22,7 @@ canvas.style.height = `${CANVAS_SIZE}px`;
 function drawCanvas() {
     for (i = 1; i <= PIXEL_COUNT * PIXEL_COUNT; i++) {
         createPixel(i);
+        canvasPixels.push(`pix${i}`);
     }
 }
 
@@ -31,27 +36,57 @@ function createPixel(pixelNumber) {
 }
 
 drawCanvas();
-
-canvas.addEventListener("mousedown", () => {
-    canvas.addEventListener('mouseover', e => {
-        let mouseState = e.buttons;
-        if (mouseState == 1) {
-            console.log(e.target.id);
-            let drawOn = document.getElementById(e.target.id);
-            drawOn.style.backgroundColor = paintColor;
+//--------------------------------------------------The drama
+function drawColors(e) {
+    let drawOn = document.getElementById(e.target.id);
+    if (e.buttons == 1) {
+        if (brush == 'colors') {
+            drawOn.style.backgroundColor = brushColor;
         }
+        else if (brush == 'rainbow') {
+            let randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+            drawOn.style.backgroundColor = randomColor;
+        }
+    }
+}
+
+canvas.addEventListener("mousedown", e => {
+    drawColors(e);
+    canvas.addEventListener('mouseover', e => {
+        drawColors(e);
     })
 });
 
-redButton.addEventListener('click', () => {
-    paintColor = 'red';
-});
-greenButton.addEventListener('click', () => {
-    paintColor = 'green';
-});
-blueButton.addEventListener('click', () => {
-    paintColor = 'blue';
-});
+colorInput.addEventListener('input', () => {
+    brushColor = colorInput.value;
+    brush = 'colors';
+})
+
+colorsButton.addEventListener('click', () => {
+    brushColor = colorInput.value;
+    brush = 'colors';
+})
+
+rainbowButton.addEventListener('click', () => {
+    brush = 'rainbow';
+})
+
 eraserButton.addEventListener('click', () => {
-    paintColor = 'white';
+    brush = 'colors';
+    brushColor = 'white';
 });
+
+clearButton.addEventListener('click', () => {
+    clearCanvas();
+});
+
+
+
+function clearCanvas() {
+    for (id of canvasPixels) {
+        let drawOn = document.getElementById(id);
+        drawOn.style.backgroundColor = 'white';
+    }
+}
+
+

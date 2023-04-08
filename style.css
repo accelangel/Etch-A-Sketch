@@ -1,43 +1,93 @@
-* {
-    background-color: blanchedalmond;
-    border: solid 1px limegreen;
-    margin: 0;
-}
+ {
+     border: 1px solid lime;
+ }
 
-body {
-    min-height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+ body {
+     background: linear-gradient(-35deg, #e5d52d, #e13be7);
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     align-items: center;
+ }
 
-button {
-    margin: 10px;
-}
+ button {
+     margin: 10px;
+     width: 50px;
+ }
 
-.canvas {
-    display: flex;
-    flex-wrap: wrap;
-}
+ .artContainer {
+     display: flex;
+     justify-content: center;
+     width: 100%;
+ }
 
-.pixel {
-    background-color: antiquewhite;
-    box-sizing: border-box;
-}
+ .uiContainer {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     margin-right: 50px;
+     width: 100px;
+ }
 
-.red {
-    background-color: red;
-}
+ .canvas {
+     display: flex;
+     flex-wrap: wrap;
+     margin: 15px;
+     box-shadow: 10px 5px 5px black;
+     cursor: crosshair;
+ }
 
-.green {
-    background-color: green;
-}
+ .pixel {
+     background-color: white;
+     box-sizing: border-box;
+ }
 
-.blue {
-    background-color: blue;
-}
+ .colors {
+     border: 1px solid black;
+     background-color: transparent;
+     width: 100%;
+     height: 25px;
+     border-radius: 3px;
+ }
 
-.eraser {
-    background-color: white;
-}
+ .rainbow {
+     border: 1px solid black;
+     background-color: transparent;
+     width: 100%;
+     height: 25px;
+     border-radius: 3px;
+ }
+
+ .eraser {
+     border: 1px solid black;
+     background-color: transparent;
+     width: 100%;
+     height: 25px;
+     border-radius: 3px;
+ }
+
+ .clear {
+     border: 1px solid black;
+     background-color: transparent;
+     width: 100%;
+     height: 25px;
+     border-radius: 3px;
+ }
+
+ #colorInput {
+     width: 50px;
+     height: 100px;
+     border-radius: 3px;
+     border: none;
+     background-color: transparent;
+ }
+
+
+
+
+
+ background: linear-gradient(-35deg, #d4b31e, #c208c8);
+ background: linear-gradient(-35deg, #e77307, #26c4a5);
+ background: linear-gradient(-35deg, #ed5634, #45b833);
