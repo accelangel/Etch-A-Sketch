@@ -9,7 +9,8 @@ const clearButton = document.querySelector('.clear')
 const colorInput = document.getElementById('colorInput');
 
 let canvasPixels = []; //Array to store 'id' of every pixel in the canvas
-let brushColor = 'black';//Initial color of the default brush
+colorInput.value = '#00FFFB';
+let brushColor = colorInput.value;//Initial color of the default brush
 let brush = 'colors';
 
 let previousButton = colorsButton;
@@ -38,7 +39,6 @@ function createPixel(pixelNumber) {
 }
 
 colorsButton.classList.add('selected');
-colorInput.value = '#00FFFB';
 drawCanvas();
 //--------------------------------------------------The drama
 function drawColors(e) {

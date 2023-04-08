@@ -44,27 +44,31 @@
      box-sizing: border-box;
  }
 
- .colors, .rainbow, .eraser, .clear {
+ .colors,
+ .rainbow,
+ .eraser,
+ .clear {
      border: 1px solid black;
      background-color: transparent;
      width: 100%;
      height: 25px;
      border-radius: 3px;
  }
-.colors:hover {
-    transform: scale(104%);
-}
+
+ .colors:hover {
+     transform: scale(104%);
+ }
 
  .rainbow:hover {
-    transform: scale(104%);
+     transform: scale(104%);
  }
 
  .eraser:hover {
-    transform: scale(104%);
+     transform: scale(104%);
  }
 
  .clear:hover {
-    transform: scale(104%);
+     transform: scale(104%);
  }
 
  #colorInput {
@@ -74,18 +78,17 @@
      border: none;
      background-color: transparent;
  }
+
  #colorInput:hover {
-    transform: scale(101%);
+     transform: scale(101%);
  }
 
-.selected {
-    background-color: rgba(255,255,255,0.5);
-}
+ .selected {
+     background-color: rgba(255, 255, 255, 0.5);
+ }
 
 
 
  background: linear-gradient(-35deg, #d4b31e, #c208c8);
  background: linear-gradient(-35deg, #e77307, #26c4a5);
  background: linear-gradient(-35deg, #ed5634, #45b833);
-
- 
