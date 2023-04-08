@@ -10,7 +10,7 @@ const colorInput = document.getElementById('colorInput');
 
 let canvasPixels = []; //Array to store 'id' of every pixel in the canvas
 colorInput.value = '#00FFFB';
-let brushColor = colorInput.value;//Initial color of the default brush
+let brushColor = '#00FFFB'; //Initial color of the default brush
 let brush = 'colors';
 
 let previousButton = colorsButton;
@@ -101,3 +101,19 @@ function clearCanvas() {
 }
 
 
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
