@@ -11,8 +11,10 @@ const colorInput = document.getElementById('colorInput');
 let canvasPixels = []; //Array to store 'id' of every pixel in the canvas
 let brushColor = 'black';//Initial color of the default brush
 let brush = 'colors';
+
+let previousButton = colorsButton;
 //--------------------------------------------------Draw Canvas
-const CANVAS_SIZE = 448;
+const CANVAS_SIZE = 272;
 const PIXEL_SIZE = 16;
 const PIXEL_COUNT = CANVAS_SIZE / PIXEL_SIZE;
 
@@ -35,6 +37,8 @@ function createPixel(pixelNumber) {
     canvas.append(pix);
 }
 
+colorsButton.classList.add('selected');
+colorInput.value = '#00FFFB';
 drawCanvas();
 //--------------------------------------------------The drama
 function drawColors(e) {
@@ -65,22 +69,29 @@ colorInput.addEventListener('input', () => {
 colorsButton.addEventListener('click', () => {
     brushColor = colorInput.value;
     brush = 'colors';
+    selectedButton(colorsButton);
 })
 
 rainbowButton.addEventListener('click', () => {
     brush = 'rainbow';
+    selectedButton(rainbowButton);
 })
 
 eraserButton.addEventListener('click', () => {
     brush = 'colors';
     brushColor = 'white';
+    selectedButton(eraserButton);
 });
+
+function selectedButton(button) {
+    button.classList.add('selected');
+    previousButton.classList.remove('selected');
+    previousButton = button;
+}
 
 clearButton.addEventListener('click', () => {
     clearCanvas();
 });
-
-
 
 function clearCanvas() {
     for (id of canvasPixels) {
