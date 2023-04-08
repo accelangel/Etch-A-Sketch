@@ -7,9 +7,10 @@ const rainbowButton = document.querySelector('.rainbow');
 const eraserButton = document.querySelector('.eraser')
 const clearButton = document.querySelector('.clear')
 const colorInput = document.getElementById('colorInput');
+const range = document.getElementById('range')
 
 let canvasPixels = []; //Array to store 'id' of every pixel in the canvas
-colorInput.value = '#00FFFB';
+colorInput.value = '#00FFFB'; //Fixes a bug in github pages where default is black
 let brushColor = '#00FFFB'; //Initial color of the default brush
 let brush = 'colors';
 
@@ -21,6 +22,11 @@ const PIXEL_COUNT = CANVAS_SIZE / PIXEL_SIZE;
 
 canvas.style.width = `${CANVAS_SIZE}px`;
 canvas.style.height = `${CANVAS_SIZE}px`;
+
+range.addEventListener('input', () => {
+    let rangeValue = range.value;
+    console.log(rangeValue);
+})
 
 function drawCanvas() {
     for (i = 1; i <= PIXEL_COUNT * PIXEL_COUNT; i++) {
@@ -101,6 +107,8 @@ function clearCanvas() {
         drawOn.style.backgroundColor = 'white';
     }
 }
+
+
 
 
 /*

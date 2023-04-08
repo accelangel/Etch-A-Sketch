@@ -87,8 +87,12 @@
      background-color: rgba(255, 255, 255, 0.5);
  }
 
-
+#range {
+    
+}
 
  background: linear-gradient(-35deg, #d4b31e, #c208c8);
  background: linear-gradient(-35deg, #e77307, #26c4a5);
  background: linear-gradient(-35deg, #ed5634, #45b833);
+
+ 
