@@ -7,6 +7,7 @@ const rainbowButton = document.querySelector('.rainbow');
 const eraserButton = document.querySelector('.eraser')
 const clearButton = document.querySelector('.clear')
 const resizeButton = document.querySelector('.resize');
+const gridButton = document.getElementById('showGrid')
 
 let canvasPixels = []; //Array to store 'id' of every pixel in the canvas
 colorInput.value = '#00FFFB'; //Fixes a bug in github pages where default is black
@@ -16,7 +17,7 @@ let brush = 'colors';
 
 let previousButton = colorsButton;
 //--------------------------------------------------Draw Canvas
-const CANVAS_SIZE = 400;
+const CANVAS_SIZE = 320;
 const gridOptions = [4, 8, 16, 32, 64];
 let gridOptionsIndex = 2;
 
@@ -31,6 +32,7 @@ resizeButton.addEventListener('click', () => {
 });
 
 function drawCanvas(gridOption) {
+    canvasPixels = [];
     let pixelSize = CANVAS_SIZE / gridOption;
     for (i = 0; i < gridOption * gridOption; i++) {
         createPixel(i, pixelSize);
@@ -110,3 +112,4 @@ function clearCanvas() {
         drawOn.style.backgroundColor = 'white';
     }
 }
+
