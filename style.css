@@ -1,4 +1,5 @@
 body {
+    font-family: 'Courier New', Courier, monospace;
     background: linear-gradient(-35deg, #e5d52d, #e13be7);
     min-height: 100vh;
     display: flex;
@@ -87,6 +88,21 @@ button {
 
 .selected {
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+.footerContainer {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+}
+
+a {
+    color: red;
 }
 
 
