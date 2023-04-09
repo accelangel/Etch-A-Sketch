@@ -6,47 +6,50 @@ const colorsButton = document.querySelector('.colors');
 const rainbowButton = document.querySelector('.rainbow');
 const eraserButton = document.querySelector('.eraser')
 const clearButton = document.querySelector('.clear')
-const colorInput = document.getElementById('colorInput');
-const range = document.getElementById('range')
+const resizeButton = document.querySelector('.resize');
 
 let canvasPixels = []; //Array to store 'id' of every pixel in the canvas
 colorInput.value = '#00FFFB'; //Fixes a bug in github pages where default is black
 let brushColor = '#00FFFB'; //Initial color of the default brush
 let brush = 'colors';
 
+
 let previousButton = colorsButton;
 //--------------------------------------------------Draw Canvas
-const CANVAS_SIZE = 272;
-const PIXEL_SIZE = 16;
-const PIXEL_COUNT = CANVAS_SIZE / PIXEL_SIZE;
+const CANVAS_SIZE = 400;
+const gridOptions = [4, 8, 16, 32, 64];
+let gridOptionsIndex = 2;
 
 canvas.style.width = `${CANVAS_SIZE}px`;
 canvas.style.height = `${CANVAS_SIZE}px`;
 
-range.addEventListener('input', () => {
-    let rangeValue = range.value;
-    console.log(rangeValue);
-})
+resizeButton.addEventListener('click', () => {
+    gridOptionsIndex = (gridOptionsIndex + 1) % gridOptions.length;
+    resizeButton.textContent = `${gridOptions[gridOptionsIndex]}x${gridOptions[gridOptionsIndex]}`;
+    canvas.innerHTML = '';
+    drawCanvas(gridOptions[gridOptionsIndex]);
+});
 
-function drawCanvas() {
-    for (i = 1; i <= PIXEL_COUNT * PIXEL_COUNT; i++) {
-        createPixel(i);
+function drawCanvas(gridOption) {
+    let pixelSize = CANVAS_SIZE / gridOption;
+    for (i = 0; i < gridOption * gridOption; i++) {
+        createPixel(i, pixelSize);
         canvasPixels.push(`pix${i}`);
     }
 }
 
-function createPixel(pixelNumber) {
+function createPixel(pixelNumber, pixelSize) {
     const pix = document.createElement('div');
     pix.setAttribute('id', `pix${pixelNumber}`);
     pix.classList.add('pixel');
-    pix.style.width = `${PIXEL_SIZE}px`;
-    pix.style.height = `${PIXEL_SIZE}px`;
+    pix.style.width = `${pixelSize}px`;
+    pix.style.height = `${pixelSize}px`;
     canvas.append(pix);
 }
 
 colorsButton.classList.add('selected');
-drawCanvas();
-//--------------------------------------------------The drama
+drawCanvas(gridOptions[gridOptionsIndex]);
+//--------------------------------------------------Draw Colors
 function drawColors(e) {
     let drawOn = document.getElementById(e.target.id);
     if (e.buttons == 1) {
@@ -107,23 +110,3 @@ function clearCanvas() {
         drawOn.style.backgroundColor = 'white';
     }
 }
-
-
-
-
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/

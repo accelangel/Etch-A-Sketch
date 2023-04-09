@@ -37,6 +37,8 @@
      margin: 15px;
      box-shadow: 10px 5px 5px black;
      cursor: crosshair;
+     border: solid 1px gold;
+     
  }
 
  .pixel {
@@ -44,10 +46,12 @@
      box-sizing: border-box;
  }
 
+
  .colors,
  .rainbow,
  .eraser,
- .clear {
+ .clear,
+ .resize {
      border: 1px solid black;
      background-color: transparent;
      width: 100%;
@@ -71,6 +75,10 @@
      transform: scale(104%);
  }
 
+ .resize:hover {
+     transform: scale(104%);
+ }
+
  #colorInput {
      width: 100px;
      height: 100px;
@@ -87,12 +95,9 @@
      background-color: rgba(255, 255, 255, 0.5);
  }
 
-#range {
-    
-}
+
+
 
  background: linear-gradient(-35deg, #d4b31e, #c208c8);
  background: linear-gradient(-35deg, #e77307, #26c4a5);
  background: linear-gradient(-35deg, #ed5634, #45b833);
-
- 
